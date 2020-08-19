@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bookItemModel.dart';
+part of 'book_item_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -14,7 +14,7 @@ BookItemModel _$BookItemModelFromJson(Map<String, dynamic> json) {
     json['Img'] as String,
     json['Desc'] as String,
     json['CName'] as String,
-    json['Score'] as double,
+    json['Score'] as String,
   );
 }
 

@@ -11,7 +11,7 @@
  */
 import 'package:json_annotation/json_annotation.dart';
 
-part 'bookItemModel.g.dart';
+part 'book_item_model.g.dart';
 
 /**
  * 书籍
@@ -31,7 +31,7 @@ class BookItemModel {
   @JsonKey(name: 'CName')
   String cName;
   @JsonKey(name: 'Score')
-  double score;
+  String score;
 
   BookItemModel(this.id,this.name,this.author,this.img,this.desc,this.cName,this.score);
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bqg/http/http_error.dart';
-import 'package:bqg/model/baseResponse.dart';
+import 'package:bqg/model/base_response.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 
@@ -20,7 +20,7 @@ class HttpRequest {
     this._dio = Dio();
   }
 
-  Future<Map<String, dynamic>> get (String url) async {
+  Future<dynamic> get (String url) async {
     ConnectivityResult connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
       throw new HttpError(HttpError.NETWORK_ERROR, '请求网络异常，请稍后重试！');
@@ -29,7 +29,7 @@ class HttpRequest {
       Response response = await this._dio.get(url);
       BaseResponse baseResponse = BaseResponse.fromJson(jsonDecode(response.toString()));
       if (baseResponse.status == 1) {
-        if (baseResponse.data == null || !(baseResponse.data is Map)) {
+        if (baseResponse.data == null) {
           throw new HttpError(HttpError.PARSE_ERROR, '返回结果有问题');
         } else {
           return baseResponse.data;

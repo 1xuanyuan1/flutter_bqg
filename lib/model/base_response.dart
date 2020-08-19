@@ -4,7 +4,7 @@
 "data": {}
  */
 import 'package:json_annotation/json_annotation.dart';
-part 'baseResponse.g.dart';
+part 'base_response.g.dart';
 
 /**
  * 默认接口返回样式
