@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bqg/http/http_error.dart';
-import 'package:bqg/model/baseResponse.dart';
+import 'package:bqg/model/base_response.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/dio.dart';
 

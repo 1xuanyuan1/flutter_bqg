@@ -1,7 +1,7 @@
 import 'package:bqg/http/http_constants.dart';
 import 'package:bqg/http/http_repository.dart';
-import 'package:bqg/model/bookItemModel.dart';
-import 'package:bqg/model/bookList.dart';
+import 'package:bqg/model/book_item_model.dart';
+import 'package:bqg/model/book_list.dart';
 import 'package:dio/dio.dart';
 
 import 'package:bqg/utils/log_util.dart';
@@ -32,10 +32,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   void getData () async {
-    BookList bookList = await HttpRepository().getBookList(
+    BookList bookList = await HttpRepository.getInstance().getBookList(
         type: HttpConstants.RANK_TYPE_NEW,
-        time: HttpConstants.RANK_TIME_WEEK
+        time: HttpConstants.RANK_TIME_WEEK,
+        page: 1
     );
+
+//    await HttpRepository.getInstance().getBookMall(gender: HttpConstants.GENDER_MAN);
     setState(() {
       this._lists = bookList.lists;
     });

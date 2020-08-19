@@ -1,6 +1,6 @@
-import 'package:bqg/model/bookItemModel.dart';
+import 'package:bqg/model/book_item_model.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'bookList.g.dart';
+part 'book_list.g.dart';
 
 /**
  * 书籍

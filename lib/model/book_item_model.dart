@@ -11,7 +11,7 @@
  */
 import 'package:json_annotation/json_annotation.dart';
 
-part 'bookItemModel.g.dart';
+part 'book_item_model.g.dart';
 
 /**
  * 书籍
