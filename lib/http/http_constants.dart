@@ -19,4 +19,10 @@ class HttpConstants {
   static const String RANK_TIME_MONTH = 'month';
   /// 总榜
   static const String RANK_TIME_TOTAL = 'total';
+
+  /// 性别
+  /// 男频
+  static const String GENDER_MALE = 'man2';
+  /// 男频
+  static const String GENDER_FEMALE = 'lady2';
 }

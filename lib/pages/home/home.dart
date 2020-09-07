@@ -1,6 +1,7 @@
 import 'package:bqg/http/http_repository.dart';
 import 'package:bqg/model/book_item_model.dart';
 import 'package:bqg/model/book_mall.dart';
+import 'package:bqg/pages/base/bookinfo.dart';
 
 import 'package:bqg/utils/log_util.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +30,23 @@ class _HomePageState extends State<HomePage> {
 //          BookItemModel book = item.lists[0];
           return Column(
             children: [
-              Row(
-                children: [
-                  Image.network(item.navIcon),
-                  Text(item.category),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, bottom: 16),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24.0, right: 6.0),
+                      child: Image(
+                        image: NetworkImage(item.navIcon),
+                        height: 16,
+                        width: 16,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Text(item.category),
 //
-                ],
+                  ],
+                ),
               ),
               GridView.builder(
                 shrinkWrap: true, 								//解决无限高度问题
@@ -49,25 +61,33 @@ class _HomePageState extends State<HomePage> {
                 itemCount: item.lists.length,
                 itemBuilder: (BuildContext context1, int index2) {
                   BookItemModel book = item.lists[index2];
-                  return Container(
-                    child: Column(
-                        children: [
-                          Image(
-                            image: NetworkImage(HttpRepository.getImageUrl(name: book.img)),
-                            height: 120,
-                            width: 80,
-                            fit: BoxFit.fill,
-                          ),
-                          Text(
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (BuildContext context) => BookInfoPage(book.id),
+                        ),);
+                      },
+                      child: Container(
+                        child: Column(
+                          children: [
+                            Image(
+                              image: NetworkImage(HttpRepository.getImageUrl(name: book.img)),
+                              height: 120,
+                              width: 80,
+                              fit: BoxFit.fill,
+                            ),
+                            Text(
                               book.name,
                               style: TextStyle(
-                                fontSize: 10
+                                  fontSize: 10
                               ),
                               overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                    ),
+                            ),
+                          ],
+                        ),
+                      )
                   );
+
                 },
               ),
 //              ListView.builder(
